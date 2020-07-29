@@ -14,7 +14,31 @@ namespace Vidly.Controllers
         {
             var movie = new Movie() { Name = "Shrek"};
 
+            //var customers = new CustomerList<string>()
+            //{
+
+            //}
+
             return View(movie);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            return Content(id.ToString());
+        }
+
+        public ActionResult Index(int? pageIndex, string sortBy)
+        {
+            if (!pageIndex.HasValue)
+                pageIndex = 1;
+
+            return Content(pageIndex.ToString());
+        }
+
+        [Route]
+        public ActionResult ByReleaseDate(int year, int month)
+        {
+            return Content(year + "/" + month);
         }
     }
 }
